@@ -107,7 +107,7 @@ git branch new_feature
 git switch new_feature
 M-m-m-m-modify files...
 git switch master 
-git merge new_feature
+git rebase master 
 git branch -d new feature
 ```
 The quick-n-dirty version:
