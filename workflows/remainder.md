@@ -1,71 +1,4 @@
 
-### Snippet: Without? It doesn't work!
-
-```
-git init
-```
-
-If you want to be more specific!
-
-```
-git init <path/to/dir/>
-```
-
-### Snippet: Butter, Bread, ..and Chocolate!
-
-Butter and bread!
-
-```
-git status
-git add <files>
-git commit 
-```
-Chocolate! Note: Do you want to stage and commit *all* your patches at once?
-Use the following snippet. But be aware -- this can be desirable; it might not
-be! ..Like chocolate.
-
-```
-git status
-git commit -a
-```
-A compromise!
-
-```
-git status
-git commit -a
-```
-
-
-
-### Snippet: The origin of your Git-verse!
-
-```
-git remote add origin git@github.com:sbissantz/repo.git 
-git remote -v
-git push -u origin master
-```
-
-## Workflow 1: A-Z!
-
-Create a repository, modify some files, do the initial commit, locate a remote
-repository and push!
-
-```
-git init
-M-m-m-m-modify files...
-git status
-git add <file> <file> <file>
-git commit
-
-git status
-git add <file> <file> <file>
-git commit
-
-git remote add origin git@github.com:sbissantz/repo.git 
-git remote -v
-git push -u origin master
-```
-
 ### Snippet: Modification D-day!
 
 Drop all your local changes and commits, fetch the latest history from the
@@ -98,26 +31,6 @@ safely.
 git branch --move master main
 git push --set-upstream origin main
 git push origin --delete master
-```
-
-## Snippet: Working with branches
-
-```
-git branch new_feature
-git switch new_feature
-M-m-m-m-modify files...
-git switch master 
-git rebase master 
-git branch -d new feature
-```
-The quick-n-dirty version:
-
-```
-git switch -c new_feature
-M-m-m-m-modify files...
-git switch -
-git merge new_feature
-git branch -d new feature
 ```
 
 ### Snippet: A-a-a-a-alias!
