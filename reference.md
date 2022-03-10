@@ -95,6 +95,9 @@ Note: `system < global < local`. Which means, changes applied to a local
 | `git commit -a` | Stage & commit all my modified files (with a message from `core.editor`) |
 | `git commit -a -m <msg>` | Stage & commit all my modified files with `<msg>` |
 
+Note: `git commit -a` won't start tracking files. So if you're in a rush, don't
+forget to tell Git it should track them!
+
 ---
 
 # git clone 
@@ -131,6 +134,8 @@ Note: `system < global < local`. Which means, changes applied to a local
 | `git rm \*` | Remove all unstaged files from my WD |
 | `git rm -f <file>` | Remove this staged `<file>` from my WD |
 | `git rm --cached <file>` | Stop tracking this `<file>` (i.e., remove the `<file>` from the staging area, but keep it in my WD | 
+
+
 
 ---
 
@@ -383,10 +388,11 @@ Some shortcuts I find useful!
 | `git unstage <file>` | `git reset -- HEAD <file>` |
 | `git unstage <file>` | `git restore --staged <file>` |
 | `git unmodify <file>` | `git restore <file>` |
+| `git untrack` | `git rm --cached <file>` | 
 | `git last` | `git log -1 HEAD` | 
-| `git visual` | `!gitk` | Alias for a visual git interface | 
-| `git gui` | An alternative to `gitk` | 
 | `git logcial` | `git log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit` | Alias for a log(ical) commit history output |
+| `git visual` | `!gitk` | Alias for a visual git interface | 
+| `git vivid` | `!git gui` An alternative to `gitk` | 
 
 You can add the `logical` alias to your `.gitconfig` using by either using `git
 config --global alias.<shorty> <command>. ` or adding `logical = log --color
