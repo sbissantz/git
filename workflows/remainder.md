@@ -1,45 +1,53 @@
+# Modification D-day!
 
-### Snippet: Modification D-day!
+Git is pretty tolerant if you messed it up. That's good news, because there are
+multiple steps of escalation on which you can intervene. Let's move through
+them case by case:
 
-Drop all your local changes and commits, fetch the latest history from the
-server and point your local master branch at it.
+## I. Staged a file by mistake!
+
+Don't worry! you can use simple use: 
+
+```
+git restore --staged
+```
+
+Note: As I have bad memory and always confuse when to put the `--staged` flag
+at the `restore` command, I created an alias. I use:
+
+```
+git unstage
+```
+
+## II. Modified accidentally!
+
+So what! 
+
+```
+git unmodify 
+```
+
+## III. Pushed inadvertently!
+
+```
+git untrack 
+```
+
+## IV. Really 'fogd' it up!
+
+However, if you did completely mess up your repo and there is no way to get you
+out there in one piece do *not* abandon hope. Drop all your local changes and
+commits, fetch the latest history from the server and point your local master
+branch at it.
 
 ```
 git fetch origin 
 git reset --hard origin/master
 ```
 
-### Snippet 2: Totally up-to-date
 
-Get totally up to date ahead and behind numbers
 
-```
-git fetch --all 
-git branch -vv
-```
 
-### Snippet: Rename branches -- locally & remotely 
-
-Rename the master branch to main. Do this on remote, too (i.e. set main as new
-upstream branch). Therefore we rename the branch an define the new upstream branch
-(`origin/master`) explicitly. So we highlight fact that (`main`) is our new
-tracking branch. After that we can rely upon `git push` to bring our patches
-home (`origin`)
-safely.
-
-```
-git branch --move master main
-git push --set-upstream origin main
-git push origin --delete master
-```
-
-### Snippet: A-a-a-a-alias!
-
-You can add the `logical` alias to your `.gitconfig` using by either using `git
-config --global alias.<shorty> <command>. ` or adding `logical = log --color
---graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
-%C(bold blue)<%an>%Creset' --abbrev-commit` manually -- under `[alias]`-- to
-your git configuration file.
 
 
 
