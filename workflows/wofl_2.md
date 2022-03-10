@@ -15,3 +15,8 @@ be! ..Like chocolate.
 ```
 git status
 git commit -a
+```
+
+Note: `git commit -a` won't start tracking files. So if you're in a rush, don't
+forget to tell Git it should track them!
+
