@@ -3,12 +3,10 @@
 Git grows vastly more important in the days of open science. As a consequence,
 its usefulness increases rapidly. Yes, it is becoming more valuable for
 scientists, too. Skills in version control are required everywhere; science,
-industry, etc. Please, don't miss the boat! 
-
-Every journey can seem tough, but Git is worth it. I hope to convince you on
-the run. To share only one nugget of truth: I started in 2019, and never looked
-back. But don't trust me. Be skeptical and make your own experience. They pay
-off somehow. You will see.
+industry, etc. Please, don't miss the boat! Every journey can seem tough, but
+Git is worth it. I hope to convince you on the run. To share only one nugget of
+truth: I started in 2019, and never looked back. But don't trust me. Be
+skeptical and make your own experience. They pay off somehow. You will see.
 
 But before we jump right into the action, let me eliminate possible prejudice.
 You may have asked yourself: Isn't Git a place for the nerdy hacker dudes? It
