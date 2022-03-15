@@ -12,7 +12,6 @@ In a nutshell:
   3.  ...doing stuff
   4. `git push -u origin master`
 
-
 ## Add a new git repo on crunchy
 
 1. `mkdir myrepo.git?`
