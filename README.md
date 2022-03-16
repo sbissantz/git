@@ -28,13 +28,14 @@ yet to come.
 ---
 
 New to this repo? I recommend reading the files in the mentioned order. But
-feel free to deviate from my advice. Wild click-throughs are exciting.
+feel free to deviate from my advice. Wild click-throughs are exciting!
 
-1. [ssh.md](./ssh.md) 
-2. [git.md](./git.md) 
-3. [connect.md](./connect.md)
-4. [git_gui.md](./git.md) [in progress]
-5. [pull_request.md](./pull_request.md) 
+1. [Setups](./setups/) 
+- [macOS_setup.md](./setups/macOS_setup.md) 
+- [ssh_setup.md](./setups/ssh_setup.md) 
+2. [Tutorials](./tutorials/) 
+- [cmd_tutorial.md](./tutorials/commandline.md) 
+- ...[in proceeding]
 
 What else? Ah, there is a command reference: [reference.md](./reference.md) --
 and I started gathering and documenting useful workflows. 
