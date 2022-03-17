@@ -87,7 +87,7 @@ thus faster than SSH, since it don't need to encrypt files.
 - Pros: Fastest network transfer protocol available!  
 - Cons: Hardest to set up! (e.g., `git-daemon-export-ok` file, `systemd/xinted`, firewall access)
 
-
+---
 
 
 
