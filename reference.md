@@ -51,6 +51,7 @@ Note: `system < global < local`. Which means, changes applied to a local
 | ------ | ----------- |
 | `git init` | Re-/initialize a git repo in my current directory |
 | `git init <dir/>` | Re-/Initialize a git repo in `<dir/>` |
+| `git init --bare <repo>.git`| Initialize a bare `<repo>.git` (i.e., a repo without a working directory; or the true nature of the "remote repo") |
 
 ---
 
@@ -399,4 +400,89 @@ config --global alias.<shorty> <command>. ` or adding `logical = log --color
 --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)
 %C(bold blue)<%an>%Creset' --abbrev-commit` manually -- under `[alias]`-- to
 your git configuration file.
+
+---
+
+# Protocols
+
+Note: bare repositories are the collaborative element of the Git-verse. More
+specifically, it is the centralized point that makes its content
+"distributable" across units. In terms of your local working directory it just
+includes the contents of your project’s `.git`. In order to communicated with
+the remote repository, you have to chose a protocol.
+
+## Protocols
+
+### Local Protocol
+
+```
+/srv/git/project.git
+```
+
+**Example Use**
+
+```
+git remote add local_proj /srv/git/project.git
+git push local_proj master
+```
+
+- Pros: Easy to set up!
+- Cons: 
+    - Often slower than SSH
+    - Careless user can easily delete internal files!
+
+Side note: The remote repo is in another directory on the same host. It is
+useful if every on the team has access to a shared file system (e.g., NFS
+mount)
+
+### (Smart) HTTP
+
+```
+https://<url>/project.git
+```
+
+**Example Use**
+
+```
+git remote add origin https:// /srv/git/project.git
+git push local_proj master
+```
+
+- Pros
+    - Single URL for all types of access!
+    - Anonymous access for open source projects!
+    - Authentication with username and passwort
+    - No need to generate SSH keys
+    - No need to bring SSH keys to the server before you can interact with it.
+- Cons: Sometimes harder to set up than SSH
+
+Side note: Use together with a credential helper like KeyChain, etc. Than it is
+maybe the most elegant way to process content.
+
+### SSH 
+
+formulae:
+
+```
+ssh://[user@]server/project.git
+git clone [user@]server:project.git
+```
+- Pros
+    - Easy to set up!
+    - SSH daemons are common place!
+    - Security! (encrypted & authenticated)
+    - Efficiency! (compact data transfer)
+    - No need to bring SSH keys to the server before you can interact with it.
+- Cons: No anonymous access! (SSH key is obligatory)
+
+### Git Protocol
+
+A special daemon dedicated to part 9418. Does not require authentication and is
+thus faster than SSH, since it don't need to encrypt files.
+
+- Pros: Fastest network transfer protocol available!  
+- Cons: Hardest to set up! (e.g., `git-daemon-export-ok` file, `systemd/xinted`, firewall access)
+
+
+
 
