@@ -52,6 +52,7 @@ Note: `system < global < local`. Which means, changes applied to a local
 | `git init` | Re-/initialize a git repo in my current directory |
 | `git init <dir/>` | Re-/Initialize a git repo in `<dir/>` |
 | `git init --bare <repo>.git`| Initialize a bare `<repo>.git` (i.e., a repo without a working directory; or the true nature of the "remote repo") |
+| `git init --bare --shared <repo>.git`| Initialize a bare `<repo>.git` with group write permissions |
 
 ---
 
@@ -465,8 +466,18 @@ formulae:
 
 ```
 ssh://[user@]server/project.git
-git clone [user@]server:project.git
+[user@]server:project.git
 ```
+**Example Use**
+
+```
+git remote add origin git@github.com:sbissantz/Rmisc.git
+git push origin master
+
+git remote add origin ssh://steven@139.17.2.1/data/crucnhy_doku.git
+git push origin master
+```
+
 - Pros
     - Easy to set up!
     - SSH daemons are common place!
