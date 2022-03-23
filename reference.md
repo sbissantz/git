@@ -134,10 +134,8 @@ forget to tell Git it should track them!
 | `git rm <file>` | Remove this unstaged `<file>` from my WD |
 | `git rm <pattern>` | Remove all unstaged files from my WD that match the `<pattern>` |
 | `git rm \*` | Remove all unstaged files from my WD |
-| `git rm -f <file>` | Remove this staged `<file>` from my WD |
 | `git rm --cached <file>` | Stop tracking this `<file>` (i.e., remove the `<file>` from the staging area, but keep it in my WD | 
-
-
+| `git rm -f <file>` | Remove this staged `<file>` from my WD |
 
 ---
 

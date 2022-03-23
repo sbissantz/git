@@ -34,6 +34,10 @@ Note: For me, it is simpler to run:
 git unmodify <file>
 ```
 
+
+
+
+
 ## III. Pushed inadvertently!
 
 If you have accidentally started tracking a file --shame on you!-- you can stop
