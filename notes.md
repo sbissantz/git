@@ -1,12 +1,20 @@
-# A quick way to setup git with SSH on the server 
+# Setup git with SSH on the server 
+
+On the server side of the moon:
+
+We first make `git` new user on the server
+
 
 ```
 sudo adduser git
 su git
+
 mkdir .ssh && chmod 700 .ssh
 touch .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
+
 cat /tmp/id_rsa.john.pub >> ~/.ssh/authorized_keys
 cat /tmp/id_rsa.josie.pub >> ~/.ssh/authorized_keys
+
 cd /srv/git
 mkdir project.git
 cd project.git
@@ -24,7 +32,10 @@ git remote add origin git@gitserver:/srv/git/project.git
 git push origin master
 ```
 
-On the others computer
+git clone git@gitserver:/srv/git/project.git
+
+
+On the others computer!
 
 ```
 git clone git@gitserver:/srv/git/project.git
@@ -35,6 +46,8 @@ git push origin master
 ```
 
 ---
+
+Now we need to restrict our new user `git` to do only Dit-relates  
 
 You can easily restrict the git user account to only Git-related activities
 with a limited shell tool called git-shell. If you set this as the git user
