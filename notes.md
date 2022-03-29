@@ -1,25 +1,40 @@
 # Setup git with SSH on the server 
 
-On the server side of the moon:
+## On the server side
 
-We first make `git` new user on the server
-
+On the server side of the moon: We first make `git` our new user on the server:
 
 ```
 sudo adduser git
 su git
+```
 
+Then we prepare its `.ssh` directory:
+
+```
 mkdir .ssh && chmod 700 .ssh
 touch .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
+```
 
+Now its time to feed it with some public keys:
+
+```
 cat /tmp/id_rsa.john.pub >> ~/.ssh/authorized_keys
 cat /tmp/id_rsa.josie.pub >> ~/.ssh/authorized_keys
+```
 
+Then we create the first project:
+
+```
 cd /srv/git
 mkdir project.git
 cd project.git
 git init --bare
 ```
+
+---
+
+## On the user side
 
 On my computer!
 
@@ -29,13 +44,16 @@ git init
 git add .
 git commit -m "Initial commit"
 git remote add origin git@gitserver:/srv/git/project.git
-git push origin master
+git push -u origin master
 ```
 
+You can just clone the repo, too:
+
+```
 git clone git@gitserver:/srv/git/project.git
+```
 
-
-On the others computer!
+## On the other(s) side!
 
 ```
 git clone git@gitserver:/srv/git/project.git
@@ -47,12 +65,11 @@ git push origin master
 
 ---
 
-Now we need to restrict our new user `git` to do only Dit-relates  
+## Restrictions
 
-You can easily restrict the git user account to only Git-related activities
-with a limited shell tool called git-shell. If you set this as the git user
-account’s login shell, then that account can’t have normal shell access to your
-server.
+Now restrict the new user `git` to only Git-related things. This means no
+normal shell access to the computer. But it is capable of getting a SSH
+connection to push/pull:
 
 ```
 cat /etc/shells   # see if git-shell is already in there. If not...
@@ -62,9 +79,7 @@ sudo -e /etc/shells  # and add the path to git-shell from last command
 sudo chsh git -s $(which git-shell)
 ```
 
-Now, the git user can still use the SSH connection to push and pull Git
-repositories but can’t shell onto the machine. If you try, you’ll see a login
-rejection like this:
+Let's double check, what happended if you try to SSH-shell on the server:
 
 ```
 $ ssh git@gitserver
@@ -73,14 +88,15 @@ hint: ~/git-shell-commands should exist and have read and execute access.
 Connection to gitserver closed.
 ```
 
-At this point, users are still able to use SSH port forwarding to access any
-host the git server is able to reach. If you want to prevent that, you can edit
-the authorized_keys file and prepend the following options to each key you’d
-like to restrict:
+But hold on! users can still use SSH port forwarding. Which means users can
+access any host the git server is able to reach. If you don't like that, modify
+the authorized_keys file and add ... to the end of *each* key!
 
 `no-port-forwarding,no-X11-forwarding,no-agent-forwarding,no-pty`
 
+Now Git network commands will still work just fine but the users won’t be able
+to get a shell.
 
-Now Git network commands will still work just fine but the users won’t be able to get a shell.
+Note: Customize the message that users see if they try to SSH in like that. Run
+`git help shell`.
 
-Customize the message that users see if they try to SSH in like that. Run git help shell
