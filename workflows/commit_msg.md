@@ -1,4 +1,4 @@
-## How write a commit message (Tim Pope)
+# Commit message primer (Tim Pope)
 
 Capitalized, short (50 chars or less) summary
 
