@@ -23,7 +23,7 @@ cat /tmp/id_rsa.john.pub >> ~/.ssh/authorized_keys
 cat /tmp/id_rsa.josie.pub >> ~/.ssh/authorized_keys
 ```
 
-Then we create the first project:
+After that we create the first project:
 
 ```
 cd /srv/git
